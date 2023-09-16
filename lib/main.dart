@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import 'package:cv_appication_s2/edit_view.dart';
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
 }
 
 class CVview extends StatefulWidget {
-  late  CVdata? cvData;
+  late CVdata? cvData;
 
   CVview({
     Key? key,
@@ -39,12 +38,11 @@ class CVview extends StatefulWidget {
   State<CVview> createState() => _CVviewState();
 }
 
-
 class _CVviewState extends State<CVview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         centerTitle: true,
         title: Text(
           'CV Application',
@@ -78,29 +76,25 @@ class _CVviewState extends State<CVview> {
             const SizedBox(
               height: 120,
             ),
-           RButtonWidget(
-  label: 'Edit Data',
-  onTap: () async {
-    final updatedData = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => EditView(initialData: widget.cvData),
-      ),
-    );
-    if (updatedData != null) {
-      setState(() {
-        widget.cvData = updatedData;
-      });
-    }
-  },
-)
+            RButtonWidget(
+              label: 'Edit Data',
+              onTap: () async {
+                final updatedData = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EditView(initialData: widget.cvData),
+                  ),
+                );
+                if (updatedData != null) {
+                  setState(() {
+                    widget.cvData = updatedData;
+                  });
+                }
+              },
+            )
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
